@@ -1,0 +1,105 @@
+{
+  "batch_id": "3993",
+  "likes": [],
+  "emotes": [],
+  "comments": [],
+  "users": [
+    {
+      "id": "user123",
+      "name": "John Doe",
+      "is_owner": true,
+      "description": "I'm a software engineer",
+      "avatar_url": "https://example.com/avatar1.jpg"
+    },
+    {
+      "id": "user131415",
+      "name": "Alex Lee",
+      "is_owner": true,
+      "description": "I'm a marketer",
+      "avatar_url": "https://example.com/avatar5.jpg"
+    },
+    {
+      "id": "user789",
+      "name": "Mike Johnson",
+      "is_owner": true,
+      "description": "I'm a photographer",
+      "avatar_url": "https://example.com/avatar3.jpg"
+    },
+    {
+      "id": "user101112",
+      "name": "Emily Brown",
+      "is_owner": false,
+      "description": "I'm a writer",
+      "avatar_url": "https://example.com/avatar4.jpg"
+    },
+    {
+      "id": "user456",
+      "name": "Jane Smith",
+      "is_owner": false,
+      "description": "I'm a graphic designer",
+      "avatar_url": "https://example.com/avatar2.jpg"
+    }
+  ],
+  "items": [
+    {
+      "media_url": "https://example.com/media1.jpg",
+      "thumb_url": "https://example.com/media1_thumb.jpg",
+      "content_id": "123",
+      "type": "image",
+      "by_owner": true,
+      "can_edit": true,
+      "created_at": 1642982400,
+      "comment_count": 5,
+      "creator_id": "user123",
+      "like_count": 10
+    },
+    {
+      "media_url": "https://example.com/media2.mp4",
+      "thumb_url": "https://example.com/media2_thumb.jpg",
+      "content_id": "456",
+      "type": "video",
+      "by_owner": false,
+      "can_edit": false,
+      "created_at": 1642983000,
+      "comment_count": 2,
+      "creator_id": "user131415",
+      "like_count": 20
+    },
+    {
+      "media_url": "https://example.com/media3.jpg",
+      "thumb_url": "https://example.com/media3_thumb.jpg",
+      "content_id": "789",
+      "type": "image",
+      "by_owner": true,
+      "can_edit": false,
+      "created_at": 1642983600,
+      "comment_count": 8,
+      "creator_id": "user789",
+      "like_count": 15
+    },
+    {
+      "media_url": "https://example.com/media4.mp4",
+      "thumb_url": "https://example.com/media4_thumb.jpg",
+      "content_id": "101112",
+      "type": "video",
+      "by_owner": false,
+      "can_edit": true,
+      "created_at": 1642984200,
+      "comment_count": 0,
+      "creator_id": "user101112",
+      "like_count": 5
+    },
+    {
+      "media_url": "https://example.com/media5.jpg",
+      "thumb_url": "https://example.com/media5_thumb.jpg",
+      "content_id": "131415",
+      "type": "image",
+      "by_owner": true,
+      "can_edit": true,
+      "created_at": 1642984800,
+      "comment_count": 3,
+      "creator_id": "user456",
+      "like_count": 8
+    }
+  ]
+}

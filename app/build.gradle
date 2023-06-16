@@ -1,0 +1,147 @@
+plugins {
+  id 'com.android.application'
+  id 'org.jetbrains.kotlin.android'
+  id 'com.google.dagger.hilt.android'
+  id 'kotlin-kapt'
+  id 'com.google.devtools.ksp'
+  id 'kover'
+  id 'kotlin-parcelize'
+}
+
+android {
+  namespace 'com.github.arhi23.photosocnet'
+  compileSdk compile_sdk_ver
+
+  defaultConfig {
+    applicationId "com.github.arhi23.photosocnet"
+    minSdk min_sdk_ver
+    targetSdk target_sdk_ver
+    versionCode 1
+    versionName "1.0"
+    archivesBaseName = "${applicationId}-v${versionName}(${versionCode})"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  kapt {
+    correctErrorTypes true
+  }
+
+  buildFeatures {
+    viewBinding true
+    compose true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion = "$compose_compiler_ver"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility "$java_ver"
+    targetCompatibility "$java_ver"
+  }
+  kotlinOptions {
+    jvmTarget = "$jvm_ver"
+  }
+  testOptions {
+    unitTests {
+      returnDefaultValues = true
+      includeAndroidResources = true
+    }
+  }
+}
+
+dependencies {
+  implementation project(path: ':app:data')
+  implementation project(path: ':app:core')
+  implementation project(path: ':app:common:composeui')
+  testImplementation project(path: ':app:api')
+
+
+  implementation "androidx.compose.material3:material3:$material3_ver"
+  implementation "androidx.compose.material3:material3-window-size-class:$material3_ver"
+
+  implementation "androidx.compose.ui:ui:$compose_ui_ver"
+  debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_ver"
+  implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_ver"
+  implementation "androidx.compose.material:material:$compose_ui_ver"
+  implementation "androidx.compose.material:material-icons-core:$compose_ui_ver"
+  implementation "androidx.compose.material:material-icons-extended:$compose_ui_ver"
+  implementation "androidx.compose.runtime:runtime:$compose_ui_ver"
+
+  implementation "androidx.paging:paging-compose:$paging_ver"
+  implementation "androidx.room:room-ktx:$room_ver"
+
+  def composeBom = platform("androidx.compose:compose-bom:$composebom_ver")
+  implementation composeBom
+  androidTestImplementation composeBom
+
+  implementation "com.google.dagger:hilt-android:$hilt_ver"
+  kapt "com.google.dagger:hilt-compiler:$hilt_ver"
+  kaptTest "com.google.dagger:hilt-android-compiler:$hilt_ver"
+
+  implementation "androidx.activity:activity-ktx:$activity_ver"
+  implementation "androidx.activity:activity-compose:$activity_ver"
+
+  implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ver"
+  implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_ver"
+  implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_ver"
+
+  implementation "androidx.core:core-ktx:$corektx_ver"
+
+
+
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_ver"
+
+  implementation "io.coil-kt:coil:$coil_ver"
+  implementation "io.coil-kt:coil-compose:$coil_ver"
+
+  implementation "me.saket.telephoto:zoomable-image-coil:$zoomable_ver"
+
+
+
+  implementation "androidx.navigation:navigation-compose:$compose_navigation_ver"
+  implementation "androidx.navigation:navigation-ui-ktx:$compose_navigation_ver"
+  implementation "io.github.raamcosta.compose-destinations:animations-core:$compose_destinations_ver"
+  ksp "io.github.raamcosta.compose-destinations:ksp:$compose_destinations_ver"
+
+  implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation_ver"
+
+  implementation "org.orbit-mvi:orbit-core:$orbit_ver"
+  implementation "org.orbit-mvi:orbit-viewmodel:$orbit_ver"
+  implementation "org.orbit-mvi:orbit-compose:$orbit_ver"
+
+  androidTestImplementation "androidx.test.ext:junit:$junit_ext_ver"
+
+
+  // UI Tests
+
+
+  testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_ver"
+  testImplementation "io.mockk:mockk:$mockk_ver"
+  testImplementation "io.mockk:mockk-android:$mockk_ver"
+  testImplementation "io.mockk:mockk-agent:$mockk_ver"
+  testImplementation "junit:junit:$junit_ver"
+  testImplementation "androidx.test:runner:$test_runner_ver"
+  testImplementation "androidx.test.ext:junit:$junit_ext_ver"
+  testImplementation "androidx.test.ext:junit-ktx:$junit_ext_ver"
+  testImplementation "com.google.dagger:hilt-android-testing:$hilt_ver"
+  testImplementation "androidx.arch.core:core-testing:$testing_core_ver"
+  testImplementation "org.robolectric:robolectric:$robolectric_ver"
+
+
+  // The instrumentation test companion libraries
+//  androidTestImplementation 'com.google.dagger:hilt-android-testing:2.44.2'
+//  androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
+//  androidTestImplementation("androidx.test:runner:1.5.2")
+
+  // Hilt testing
+//  androidTestAnnotationProcessor 'com.google.dagger:hilt-android-compiler:2.44'
+//  testAnnotationProcessor 'com.google.dagger:hilt-android-compiler:2.44'
+
+}

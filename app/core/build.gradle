@@ -1,0 +1,36 @@
+plugins {
+  id 'com.android.library'
+  id 'org.jetbrains.kotlin.android'
+  id 'com.google.devtools.ksp'
+  id 'com.google.dagger.hilt.android'
+  id 'kotlin-kapt'
+}
+
+android {
+  namespace 'com.github.arhi23.photosocnet.core'
+  compileSdk compile_sdk_ver
+
+  defaultConfig {
+    minSdk min_sdk_ver
+    targetSdk target_sdk_ver
+  }
+
+  buildTypes {
+    release {}
+  }
+  compileOptions {
+    sourceCompatibility "$java_ver"
+    targetCompatibility "$java_ver"
+  }
+  kotlinOptions {
+    jvmTarget = "$jvm_ver"
+  }
+}
+
+dependencies {
+
+  implementation "androidx.core:core-ktx:$corektx_ver"
+
+  implementation "com.google.dagger:hilt-android:$hilt_ver"
+  kapt "com.google.dagger:hilt-compiler:$hilt_ver"
+}

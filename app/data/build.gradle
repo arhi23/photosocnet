@@ -1,0 +1,58 @@
+plugins {
+  id 'com.android.library'
+  id 'org.jetbrains.kotlin.android'
+  id 'com.google.dagger.hilt.android'
+  id 'kotlin-kapt'
+  id 'com.google.devtools.ksp'
+}
+
+android {
+  namespace 'com.github.arhi23.photosocnet.data'
+  compileSdk compile_sdk_ver
+
+  defaultConfig {
+    minSdk min_sdk_ver
+    targetSdk target_sdk_ver
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release { }
+  }
+  compileOptions {
+    sourceCompatibility "$java_ver"
+    targetCompatibility "$java_ver"
+  }
+  kotlinOptions {
+    jvmTarget = "$jvm_ver"
+  }
+
+  ksp {
+    arg('room.schemaLocation', "$projectDir/schemas")
+  }
+}
+
+dependencies {
+
+  implementation project(path: ':app:api')
+  implementation project(path: ':app:core')
+
+  implementation "com.google.dagger:hilt-android:$hilt_ver"
+  implementation "androidx.core:core-ktx:$corektx_ver"
+  kapt "com.google.dagger:hilt-compiler:$hilt_ver"
+  kaptTest "com.google.dagger:hilt-android-compiler:$hilt_ver"
+
+  implementation "androidx.room:room-runtime:$room_ver"
+  implementation "androidx.room:room-ktx:$room_ver"
+  implementation "androidx.room:room-paging:$room_ver"
+  annotationProcessor "androidx.room:room-compiler:$room_ver"
+  ksp "androidx.room:room-compiler:$room_ver"
+
+  testImplementation "junit:junit:$junit_ver"
+  testImplementation "com.google.dagger:hilt-android-testing:$hilt_ver"
+  testImplementation "androidx.room:room-testing:$room_ver"
+  testImplementation "org.robolectric:robolectric:$robolectric_ver"
+  testImplementation "androidx.arch.core:core-testing:$testing_core_ver"
+  testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_ver"
+}

@@ -1,0 +1,17 @@
+<resources>
+  <string name="refresh">Refresh</string>
+  <string name="user_avatar">User avatar</string>
+  <string name="back">Back</string>
+  <string name="media_content">Media content</string>
+  <string name="server_problem">Server problem</string>
+  <string name="no_internet">No internet</string>
+  <string name="description">Description</string>
+  <string name="name">Name</string>
+  <string name="save_all">Save all</string>
+  <string name="login">Login</string>
+  <string name="password">Password</string>
+  <string name="hide_password">Hide password</string>
+  <string name="show_password">Show password</string>
+  <string name="error">Error</string>
+  <string name="app_Logo">App logo</string>
+</resources>

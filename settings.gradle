@@ -1,0 +1,23 @@
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    google()
+    mavenCentral()
+  }
+}
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    google()
+    mavenCentral()
+  }
+}
+rootProject.name = "photosocnet"
+include ":app"
+include ':core'
+include ':app:core'
+include ':app:data'
+include ':app:api'
+include ':app:common'
+include ':app:common:resources'
+include ':app:common:composeui'

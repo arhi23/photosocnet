@@ -1,0 +1,26 @@
+plugins {
+  id 'com.android.library'
+  id 'org.jetbrains.kotlin.android'
+}
+
+android {
+  namespace 'com.github.arhi23.photosocnet.resources'
+  compileSdk compile_sdk_ver
+
+  defaultConfig {
+    minSdk min_sdk_ver
+    targetSdk target_sdk_ver
+  }
+
+  buildTypes {
+    release {
+    }
+  }
+  compileOptions {
+    sourceCompatibility "$java_ver"
+    targetCompatibility "$java_ver"
+  }
+  kotlinOptions {
+    jvmTarget = "$jvm_ver"
+  }
+}

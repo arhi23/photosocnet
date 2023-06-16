@@ -1,0 +1,55 @@
+plugins {
+  id 'com.android.library'
+  id 'org.jetbrains.kotlin.android'
+  id 'com.google.devtools.ksp'
+  id 'kotlin-kapt'
+  id 'com.google.dagger.hilt.android'
+}
+
+android {
+  namespace 'com.github.arhi23.photosocnet.api'
+  compileSdk compile_sdk_ver
+
+  defaultConfig {
+    minSdk min_sdk_ver
+    targetSdk target_sdk_ver
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  compileOptions {
+    sourceCompatibility "$java_ver"
+    targetCompatibility "$java_ver"
+  }
+  kotlinOptions {
+    jvmTarget = "$jvm_ver"
+  }
+}
+
+dependencies {
+  implementation project(path: ':app:core')
+
+  implementation "com.google.dagger:hilt-android:$hilt_ver"
+  kapt "com.google.dagger:hilt-compiler:$hilt_ver"
+  kaptTest "com.google.dagger:hilt-android-compiler:$hilt_ver"
+
+  implementation "androidx.core:core-ktx:$corektx_ver"
+  implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
+  implementation "com.squareup.retrofit2:converter-moshi:$retrofit_ver"
+
+  implementation(platform("com.squareup.okhttp3:okhttp-bom:$okhttp_ver"))
+  implementation("com.squareup.okhttp3:okhttp")
+  implementation("com.squareup.okhttp3:logging-interceptor")
+
+  implementation "com.squareup.moshi:moshi-kotlin:$moshi_ver"
+  implementation "com.squareup.moshi:moshi-adapters:$moshi_ver"
+  ksp "com.squareup.moshi:moshi-kotlin-codegen:$moshi_ver"
+  implementation "com.squareup.moshi:moshi:$moshi_ver"
+
+  testImplementation "junit:junit:$junit_ver"
+  testImplementation "com.google.dagger:hilt-android-testing:$hilt_ver"
+  testImplementation "org.robolectric:robolectric:$robolectric_ver"
+  testImplementation "androidx.arch.core:core-testing:$testing_core_ver"
+  testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_ver"
+  testImplementation "com.squareup.okhttp3:mockwebserver:$mockweb_ver"
+}
