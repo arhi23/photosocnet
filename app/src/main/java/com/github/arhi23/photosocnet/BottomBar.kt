@@ -1,18 +1,17 @@
 package com.github.arhi23.photosocnet
 
 import androidx.annotation.StringRes
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Feed
 import androidx.compose.material.icons.filled.PermIdentity
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.github.arhi23.photosocnet.destinations.Destination
 import com.github.arhi23.photosocnet.destinations.OwnerProfileScreenDestination
@@ -24,11 +23,11 @@ import com.ramcosta.composedestinations.spec.DirectionDestinationSpec
 fun BottomBar(
   navController: NavController
 ) {
-  val currentDestination: Destination? = navController.appCurrentDestinationAsState().value
+  val currentDestination: Destination = navController.appCurrentDestinationAsState().value
     ?: NavGraphs.root.startAppDestination
-  BottomNavigation(elevation = 10.dp) {
+  NavigationBar() {
     BottomBarDestination.values().forEach { destination ->
-      BottomNavigationItem(
+      NavigationBarItem(
         selected = currentDestination == destination.direction,
         onClick = {
           navController.navigateTo(destination.direction) {
@@ -36,8 +35,7 @@ fun BottomBar(
           }
         },
         icon = { Icon(destination.icon, contentDescription = stringResource(destination.label)) },
-        label = { Text(stringResource(destination.label)) },
-        selectedContentColor = Color.White
+        label = { Text(stringResource(destination.label)) }
       )
     }
   }
