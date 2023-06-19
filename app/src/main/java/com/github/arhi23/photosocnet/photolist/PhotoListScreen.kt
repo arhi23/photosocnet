@@ -1,6 +1,8 @@
 package com.github.arhi23.photosocnet.photolist
 
 import android.annotation.SuppressLint
+import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -41,6 +43,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState.Loading
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.github.arhi23.photosocnet.ProfileTransitions
 import com.github.arhi23.photosocnet.resources.R.string
 import com.github.arhi23.photosocnet.UiSideEffect
 import com.github.arhi23.photosocnet.composeui.MediaContent
@@ -101,12 +104,14 @@ fun PreviewPhotoBar() {
 
 }
 
-//todo appear mayberoundplaceholders snackbar generatedesc generatetags
+//todo snackbar generatedesc generatetags
+@OptIn(ExperimentalAnimationApi::class)
+@Destination(
+  style = ProfileTransitions::class)
 @RootNavGraph(start = true)
-@Destination
 @SuppressLint("NotConstructor")
 @Composable
-fun PhotoListScreen(
+fun AnimatedVisibilityScope.PhotoListScreen(
   navigator: DestinationsNavigator,
   viewModel: PhotolistViewModel = hiltViewModel()
 ) {
@@ -209,8 +214,7 @@ fun PhotoList(
 
     LazyColumn(
       contentPadding = innerPadding,
-      modifier = Modifier
-        .background(Color.Gray)
+      modifier = Modifier.background(MaterialTheme.colorScheme.surface)
     ) {
       items(
         count = lazyPagingItems.itemCount,
@@ -255,8 +259,7 @@ fun PhotoRow(
   onUserClick: (id: String) -> Unit,
 ) {
   Row(
-    modifier = modifier
-      .background(Color.LightGray)
+    modifier = modifier.background(MaterialTheme.colorScheme.surface)
       .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
       .clip(RoundedCornerShape(8.dp)),
   ) {
@@ -264,7 +267,7 @@ fun PhotoRow(
       modifier = Modifier
         .fillMaxWidth()
         .wrapContentHeight()
-        .background(Color.Yellow)
+        .background(MaterialTheme.colorScheme.surface)
     ) {
       PostTop(
         photo.userItem.avatarUrl,
@@ -278,6 +281,7 @@ fun PhotoRow(
         Modifier
           .fillMaxWidth()
           .padding(8.dp)
+          .clickable { onPhotoClick(photo.mediaInfo.contentId) }
       )
       Text(
         modifier = Modifier

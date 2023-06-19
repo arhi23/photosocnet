@@ -1,5 +1,7 @@
 package com.github.arhi23.photosocnet.iteminfo
 
+import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,6 +14,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.github.arhi23.photosocnet.ProfileTransitions
 import com.github.arhi23.photosocnet.UiStatus.Loaded
 import com.github.arhi23.photosocnet.composeui.PostTop
 import com.ramcosta.composedestinations.annotation.Destination
@@ -25,11 +28,12 @@ fun prr() {
 //  MainImage()
 }
 
+@OptIn(ExperimentalAnimationApi::class)
 @Destination(
-  navArgsDelegate = MediaFullNavParams::class
-)
+  navArgsDelegate = MediaFullNavParams::class,
+  style = ProfileTransitions::class)
 @Composable
-fun ItemInfoScreen(
+fun AnimatedVisibilityScope.ItemInfoScreen(
   viewModel: ItemInfoViewModel = hiltViewModel(),
   navParams: MediaFullNavParams,
   destinationsNavigator: DestinationsNavigator) {
