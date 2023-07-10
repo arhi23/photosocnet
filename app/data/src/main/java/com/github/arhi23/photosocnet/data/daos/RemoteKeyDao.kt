@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.github.arhi23.photosocnet.data.entities.RemoteKeyEnt
+import com.github.arhi23.photosocnet.core.entities.RemoteKeyEnt
 
 @Dao
 interface RemoteKeyDao {

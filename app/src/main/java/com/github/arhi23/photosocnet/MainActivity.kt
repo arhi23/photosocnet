@@ -15,15 +15,9 @@ open class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       PsnTheme {
-
-        Tryout()
+        MainScreen()
       }
+
     }
   }
-}
-
-@Destination
-@Composable
-fun Tryout() {
-  MainScreen()
 }

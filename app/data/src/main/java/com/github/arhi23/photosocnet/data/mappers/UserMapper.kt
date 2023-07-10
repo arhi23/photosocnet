@@ -1,7 +1,7 @@
 package com.github.arhi23.photosocnet.data.mappers
 
 import com.github.arhi23.photosocnet.api.network.model.UserItemNet
-import com.github.arhi23.photosocnet.data.entities.UserItemEnt
+import com.github.arhi23.photosocnet.core.entities.UserItemEnt
 import javax.inject.Inject
 
 class UserMapper @Inject constructor() : Mapper<UserItemNet, UserItemEnt> {

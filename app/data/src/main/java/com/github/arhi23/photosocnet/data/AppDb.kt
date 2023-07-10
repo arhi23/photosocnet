@@ -8,20 +8,20 @@ import com.github.arhi23.photosocnet.data.daos.LikeDao
 import com.github.arhi23.photosocnet.data.daos.MediaItemDao
 import com.github.arhi23.photosocnet.data.daos.RemoteKeyDao
 import com.github.arhi23.photosocnet.data.daos.UserItemDao
-import com.github.arhi23.photosocnet.data.entities.CommentInfoEnt
-import com.github.arhi23.photosocnet.data.entities.EmoteInfoEnt
-import com.github.arhi23.photosocnet.data.entities.LikeInfoEnt
-import com.github.arhi23.photosocnet.data.entities.MediaInfoEnt
-import com.github.arhi23.photosocnet.data.entities.RemoteKeyEnt
-import com.github.arhi23.photosocnet.data.entities.UserItemEnt
+import com.github.arhi23.photosocnet.core.entities.CommentInfoEnt
+import com.github.arhi23.photosocnet.core.entities.EmoteInfoEnt
+import com.github.arhi23.photosocnet.core.entities.LikeInfoEnt
+import com.github.arhi23.photosocnet.core.entities.MediaInfoEnt
+import com.github.arhi23.photosocnet.core.entities.RemoteKeyEnt
+import com.github.arhi23.photosocnet.core.entities.UserItemEnt
 
 interface AppDb {
-  abstract fun userDao(): UserItemDao
-  abstract fun commentDao(): CommentDao
-  abstract fun likeDao(): LikeDao
-  abstract fun emoteDao(): EmoteDao
-  abstract fun mediaItemDao(): MediaItemDao
-  abstract fun remoteKeyDao(): RemoteKeyDao
+  fun userDao(): UserItemDao
+  fun commentDao(): CommentDao
+  fun likeDao(): LikeDao
+  fun emoteDao(): EmoteDao
+  fun mediaItemDao(): MediaItemDao
+  fun remoteKeyDao(): RemoteKeyDao
 }
 
 

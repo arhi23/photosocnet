@@ -56,7 +56,7 @@ fun ExpandableFabBasic(modifier: Modifier = Modifier) {
         text = "dasdsa",
         modifier = Modifier
           .size(
-            size =  if (isExpanded) 100.dp else 200.dp
+            size = if (isExpanded) 100.dp else 200.dp
           )
           .animateMovement(lookaheadScope = this)
           .animateTransformation(lookaheadScope = this)

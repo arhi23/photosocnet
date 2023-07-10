@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.github.arhi23.photosocnet.data.entities.LikeInfoEnt
+import com.github.arhi23.photosocnet.core.entities.LikeInfoEnt
 
 @Dao
 interface LikeDao {

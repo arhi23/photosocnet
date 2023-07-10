@@ -30,6 +30,8 @@ android {
 dependencies {
 
   implementation "androidx.core:core-ktx:$corektx_ver"
+  implementation "androidx.room:room-runtime:$room_ver"
+  implementation "androidx.room:room-paging:$room_ver"
 
   implementation "com.google.dagger:hilt-android:$hilt_ver"
   kapt "com.google.dagger:hilt-compiler:$hilt_ver"

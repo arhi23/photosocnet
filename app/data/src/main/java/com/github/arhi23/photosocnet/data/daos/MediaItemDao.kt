@@ -6,8 +6,8 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.github.arhi23.photosocnet.data.entities.MediaInfoEnt
-import com.github.arhi23.photosocnet.data.entities.MediaItem
+import com.github.arhi23.photosocnet.core.entities.MediaInfoEnt
+import com.github.arhi23.photosocnet.core.entities.MediaItem
 
 @Dao
 interface MediaItemDao {

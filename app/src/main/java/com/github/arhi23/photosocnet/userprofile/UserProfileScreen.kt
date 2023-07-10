@@ -34,7 +34,7 @@ import com.github.arhi23.photosocnet.UiStatus
 import com.github.arhi23.photosocnet.resources.R.string
 import com.github.arhi23.photosocnet.composeui.Avatar
 import com.github.arhi23.photosocnet.composeui.theme.PsnTheme
-import com.github.arhi23.photosocnet.data.entities.UserItemEnt
+import com.github.arhi23.photosocnet.core.entities.UserItemEnt
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import org.orbitmvi.orbit.compose.collectAsState
@@ -48,13 +48,11 @@ import org.orbitmvi.orbit.compose.collectSideEffect
 @Preview
 @Composable
 fun PreviewOwnerProfile() {
-  PsnTheme {
     ScreenContent(
       UiSideEffect.NoEffect,
       { },
       UserProfileState(UiStatus.Empty)
     )
-  }
 }
 
 @Destination(

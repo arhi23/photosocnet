@@ -7,22 +7,18 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import com.github.arhi23.photosocnet.data.entities.MediaItem
+import com.github.arhi23.photosocnet.core.entities.MediaItem
+import com.github.arhi23.photosocnet.core.repo.IPhotoRepository
+import com.github.arhi23.photosocnet.core.sources.MediaRemoteDataSource
 import kotlinx.coroutines.flow.Flow
 import java.io.IOException
 import javax.inject.Inject
 
-
 const val NETWORK_PAGE_SIZE = 25
 const val FIRST_BATCH_ID = "0"
-
-interface MediaRemoteDataSource {
-  fun getMedia(): Flow<PagingData<MediaItem>>
-}
-
 @OptIn(ExperimentalPagingApi::class)
 class MediaDataSource @Inject constructor(
-  private val photoRepository: PhotoRepository
+  private val photoRepository: IPhotoRepository
 ) : MediaRemoteDataSource {
 
   override fun getMedia(): Flow<PagingData<MediaItem>> {
@@ -44,7 +40,7 @@ class MediaDataSource @Inject constructor(
 
 @OptIn(ExperimentalPagingApi::class)
 class MediaMediator(
-  private val photoRepository: PhotoRepository
+  private val photoRepository: IPhotoRepository
 ) : RemoteMediator<Int, MediaItem>() {
 
   override suspend fun load(

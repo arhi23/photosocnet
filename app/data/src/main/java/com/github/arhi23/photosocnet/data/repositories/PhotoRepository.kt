@@ -6,11 +6,13 @@ import com.github.arhi23.photosocnet.core.RepositoryError.SpecificError
 import com.github.arhi23.photosocnet.core.Result
 import com.github.arhi23.photosocnet.core.Result.Failure
 import com.github.arhi23.photosocnet.core.Result.Success
+import com.github.arhi23.photosocnet.core.repo.IPhotoRepository
 import com.github.arhi23.photosocnet.data.NetworkResponseNorm
 import com.github.arhi23.photosocnet.data.daos.MediaItemDao
 import com.github.arhi23.photosocnet.data.daos.RemoteKeyDao
-import com.github.arhi23.photosocnet.data.entities.MediaItem
-import com.github.arhi23.photosocnet.data.entities.RemoteKeyEnt
+import com.github.arhi23.photosocnet.core.entities.MediaItem
+import com.github.arhi23.photosocnet.data.mediaItemsNet
+import com.github.arhi23.photosocnet.data.userItemNetList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,11 +23,12 @@ class PhotoRepository @Inject constructor(
   private val mediaItemDao: MediaItemDao,
   private val networkResponseNorm: NetworkResponseNorm,
   private val remoteKeyDao: RemoteKeyDao,
-) {
+) : IPhotoRepository {
 
-  fun pagingSourceTimeline(): PagingSource<Int, MediaItem> = mediaItemDao.pagingSourceTimeline()
 
-  suspend fun requestPhotos(loadKey: String, refresh: Boolean) {
+  override fun pagingSourceTimeline(): PagingSource<Int, MediaItem> = mediaItemDao.pagingSourceTimeline()
+
+  override suspend fun requestPhotos(loadKey: String, refresh: Boolean) {
     val response = feedNetworkApi.getFeedMedia(loadKey, 25)
     CoroutineScope(Dispatchers.IO).launch {
       val loadKey = loadKey.toInt()
@@ -43,7 +46,7 @@ class PhotoRepository @Inject constructor(
     }
   }
 
-  suspend fun getMediaItem(mediaId: String): Result<MediaItem> {
+  override suspend fun getMediaItem(mediaId: String): Result<MediaItem> {
     val response = feedNetworkApi.getMediaItem(mediaId)
     return when (response) {
       is Success -> {
@@ -61,7 +64,7 @@ class PhotoRepository @Inject constructor(
     }
   }
 
-  suspend fun getRefreshKey(): String? {
+  override suspend fun getRefreshKey(): String? {
     return remoteKeyDao.getByRequest("media")?.lastKey
   }
 

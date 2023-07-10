@@ -6,9 +6,9 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.github.arhi23.photosocnet.data.entities.Followers
-import com.github.arhi23.photosocnet.data.entities.MediaItem
-import com.github.arhi23.photosocnet.data.entities.UserItemEnt
+import com.github.arhi23.photosocnet.core.entities.Followers
+import com.github.arhi23.photosocnet.core.entities.MediaItem
+import com.github.arhi23.photosocnet.core.entities.UserItemEnt
 
 interface FollowersDao {
 

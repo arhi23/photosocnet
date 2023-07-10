@@ -1,7 +1,7 @@
 package com.github.arhi23.photosocnet.data.mappers
 
 import com.github.arhi23.photosocnet.api.network.model.CommentInteractionNet
-import com.github.arhi23.photosocnet.data.entities.CommentInfoEnt
+import com.github.arhi23.photosocnet.core.entities.CommentInfoEnt
 import javax.inject.Inject
 
 class CommentMapper @Inject constructor() : Mapper<CommentInteractionNet, CommentInfoEnt> {

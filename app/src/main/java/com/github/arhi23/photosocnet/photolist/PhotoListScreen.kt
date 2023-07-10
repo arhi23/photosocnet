@@ -48,11 +48,11 @@ import com.github.arhi23.photosocnet.resources.R.string
 import com.github.arhi23.photosocnet.UiSideEffect
 import com.github.arhi23.photosocnet.composeui.MediaContent
 import com.github.arhi23.photosocnet.composeui.PostTop
-import com.github.arhi23.photosocnet.data.PagingNullKey
-import com.github.arhi23.photosocnet.data.appendErrorOrNull
-import com.github.arhi23.photosocnet.data.entities.MediaItem
-import com.github.arhi23.photosocnet.data.prependErrorOrNull
-import com.github.arhi23.photosocnet.data.refreshErrorOrNull
+import com.github.arhi23.photosocnet.core.entities.MediaItem
+import com.github.arhi23.photosocnet.core.sources.PagingNullKey
+import com.github.arhi23.photosocnet.core.sources.appendErrorOrNull
+import com.github.arhi23.photosocnet.core.sources.prependErrorOrNull
+import com.github.arhi23.photosocnet.core.sources.refreshErrorOrNull
 import com.github.arhi23.photosocnet.destinations.ItemInfoScreenDestination
 import com.github.arhi23.photosocnet.destinations.UserProfileScreenDestination
 import com.github.arhi23.photosocnet.iteminfo.MediaFullNavParams

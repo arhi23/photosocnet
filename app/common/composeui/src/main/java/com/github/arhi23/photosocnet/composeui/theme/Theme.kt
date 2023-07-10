@@ -86,25 +86,25 @@ fun PsnTheme(
   dynamicColor: Boolean = true,
   content: @Composable () -> Unit
 ) {
-  val psnColorScheme = when {
+  val psnColorScheme = psnDarkColorScheme// when {
 //    dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
 //      val context = LocalContext.current
 //      if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
 //    }
-    darkTheme -> psnDarkColorScheme
-    else -> psnLightColorScheme
-  }
-  val view = LocalView.current
-  if (!view.isInEditMode) {
-    SideEffect {
-      val window = (view.context as Activity).window
-      window.statusBarColor = psnColorScheme.primary.toArgb()
-      WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
-    }
-  }
+//    darkTheme -> psnDarkColorScheme
+//    else -> psnLightColorScheme
+//  }
+//  val view = LocalView.current
+//  if (!view.isInEditMode) {
+//    SideEffect {
+//      val window = (view.context as Activity).window
+//      window.statusBarColor = psnColorScheme.primary.toArgb()
+//      WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+//    }
+//  }
 
   MaterialTheme(
-    colorScheme = psnColorScheme,
+    colorScheme = psnDarkColorScheme,
     typography = psnTypography,
     shapes = shapes,
     content = content

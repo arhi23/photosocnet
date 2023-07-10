@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.github.arhi23.photosocnet.data.entities.EmoteInfoEnt
-import com.github.arhi23.photosocnet.data.entities.EmoteItem
+import com.github.arhi23.photosocnet.core.entities.EmoteInfoEnt
+import com.github.arhi23.photosocnet.core.entities.EmoteItem
 
 @Dao
 interface EmoteDao {

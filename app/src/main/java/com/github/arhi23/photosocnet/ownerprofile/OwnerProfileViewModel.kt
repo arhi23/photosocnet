@@ -13,9 +13,9 @@ import com.github.arhi23.photosocnet.core.RepositoryError
 import com.github.arhi23.photosocnet.core.Result.Failure
 import com.github.arhi23.photosocnet.core.Result.Success
 import com.github.arhi23.photosocnet.core.ServerError
-import com.github.arhi23.photosocnet.data.entities.UserItemEnt
-import com.github.arhi23.photosocnet.data.usecases.GetOwnerTask
-import com.github.arhi23.photosocnet.data.usecases.SaveOwnerTask
+import com.github.arhi23.photosocnet.core.entities.UserItemEnt
+import com.github.arhi23.photosocnet.core.usecases.GetOwnerTask
+import com.github.arhi23.photosocnet.core.usecases.SaveOwnerTask
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch

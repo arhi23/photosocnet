@@ -15,9 +15,9 @@ import com.github.arhi23.photosocnet.core.RepositoryError.SpecificError
 import com.github.arhi23.photosocnet.core.Result.Failure
 import com.github.arhi23.photosocnet.core.Result.Success
 import com.github.arhi23.photosocnet.core.ServerError
-import com.github.arhi23.photosocnet.data.entities.MediaItem
-import com.github.arhi23.photosocnet.data.usecases.GetMediaItemTask
-import com.github.arhi23.photosocnet.data.usecases.GetMediaItemTask.Params
+import com.github.arhi23.photosocnet.core.entities.MediaItem
+import com.github.arhi23.photosocnet.core.usecases.GetMediaItemTask
+import com.github.arhi23.photosocnet.core.usecases.GetMediaItemTask.Params
 import com.github.arhi23.photosocnet.iteminfo.ItemInfoViewModel.ItemInfoState
 import com.github.arhi23.photosocnet.navArgs
 import dagger.hilt.android.lifecycle.HiltViewModel

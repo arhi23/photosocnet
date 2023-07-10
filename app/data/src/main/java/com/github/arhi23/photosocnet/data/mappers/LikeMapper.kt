@@ -1,7 +1,7 @@
 package com.github.arhi23.photosocnet.data.mappers
 
 import com.github.arhi23.photosocnet.api.network.model.LikeInteractionNet
-import com.github.arhi23.photosocnet.data.entities.LikeInfoEnt
+import com.github.arhi23.photosocnet.core.entities.LikeInfoEnt
 import javax.inject.Inject
 
 class LikeMapper @Inject constructor() : Mapper<LikeInteractionNet, LikeInfoEnt> {

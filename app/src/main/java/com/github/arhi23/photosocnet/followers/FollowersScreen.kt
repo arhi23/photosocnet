@@ -71,7 +71,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.github.arhi23.photosocnet.R.drawable
 import com.github.arhi23.photosocnet.UiSideEffect
 import com.github.arhi23.photosocnet.composeui.PsnAppBar
-import com.github.arhi23.photosocnet.data.entities.UserItemEnt
+import com.github.arhi23.photosocnet.core.entities.UserItemEnt
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import org.orbitmvi.orbit.compose.collectAsState

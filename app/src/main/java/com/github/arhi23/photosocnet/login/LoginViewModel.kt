@@ -13,10 +13,10 @@ import com.github.arhi23.photosocnet.core.RepositoryError
 import com.github.arhi23.photosocnet.core.Result.Failure
 import com.github.arhi23.photosocnet.core.Result.Success
 import com.github.arhi23.photosocnet.core.ServerError
-import com.github.arhi23.photosocnet.data.contentvalidators.LoginValidator
-import com.github.arhi23.photosocnet.data.contentvalidators.PasswordValidator
-import com.github.arhi23.photosocnet.data.usecases.LoginTask
-import com.github.arhi23.photosocnet.data.usecases.LoginTask.Params
+import com.github.arhi23.photosocnet.core.contentvalidators.LoginValidator
+import com.github.arhi23.photosocnet.core.contentvalidators.PasswordValidator
+import com.github.arhi23.photosocnet.core.usecases.LoginTask
+import com.github.arhi23.photosocnet.core.usecases.LoginTask.Params
 import com.github.arhi23.photosocnet.login.LoginScreenSideEffect.InvalidLogin
 import com.github.arhi23.photosocnet.login.LoginScreenSideEffect.InvalidPassword
 import com.github.arhi23.photosocnet.login.LoginScreenSideEffect.OpenFeed

@@ -5,15 +5,16 @@ import com.github.arhi23.photosocnet.core.RepositoryError.SpecificError
 import com.github.arhi23.photosocnet.core.Result
 import com.github.arhi23.photosocnet.core.Result.Failure
 import com.github.arhi23.photosocnet.core.Result.Success
+import com.github.arhi23.photosocnet.core.repo.IFollowersRepository
 import com.github.arhi23.photosocnet.data.daos.FollowersDao
 import javax.inject.Inject
 
 class FollowersRepository @Inject constructor(
   private val followersNetworkApi: FollowersNetworkApi,
   private val followersDao: FollowersDao
-) {
+) : IFollowersRepository {
 
-  suspend fun askToFollow(userId: String): Result<Any?> {
+  override suspend fun askToFollow(userId: String): Result<Any?> {
     return try {
       followersNetworkApi.requestFollowing(userId)
       Success(null)
@@ -22,7 +23,7 @@ class FollowersRepository @Inject constructor(
     }
   }
 
-  suspend fun removeFollower(userId: String): Result<Any?> {
+  override suspend fun removeFollower(userId: String): Result<Any?> {
     return try {
       followersNetworkApi.removeFollower(userId)
 //      followersDao.remove(userId)

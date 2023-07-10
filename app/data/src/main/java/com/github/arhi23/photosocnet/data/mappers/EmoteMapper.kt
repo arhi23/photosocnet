@@ -1,7 +1,7 @@
 package com.github.arhi23.photosocnet.data.mappers
 
 import com.github.arhi23.photosocnet.api.network.model.EmoteInteractionNet
-import com.github.arhi23.photosocnet.data.entities.EmoteInfoEnt
+import com.github.arhi23.photosocnet.core.entities.EmoteInfoEnt
 import javax.inject.Inject
 
 class EmoteMapper @Inject constructor() : Mapper<EmoteInteractionNet, EmoteInfoEnt> {

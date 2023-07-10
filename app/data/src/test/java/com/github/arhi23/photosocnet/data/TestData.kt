@@ -6,9 +6,9 @@ import com.github.arhi23.photosocnet.api.network.model.LikeInteractionNet
 import com.github.arhi23.photosocnet.api.network.model.MediaItemNet
 import com.github.arhi23.photosocnet.api.network.model.MediaListResponse
 import com.github.arhi23.photosocnet.api.network.model.UserItemNet
-import com.github.arhi23.photosocnet.data.entities.MediaInfoEnt
-import com.github.arhi23.photosocnet.data.entities.RemoteKeyEnt
-import com.github.arhi23.photosocnet.data.entities.UserItemEnt
+import com.github.arhi23.photosocnet.core.entities.MediaInfoEnt
+import com.github.arhi23.photosocnet.core.entities.RemoteKeyEnt
+import com.github.arhi23.photosocnet.core.entities.UserItemEnt
 
 class TestData {
 }

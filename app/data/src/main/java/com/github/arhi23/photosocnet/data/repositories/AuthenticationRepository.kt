@@ -5,26 +5,27 @@ import com.github.arhi23.photosocnet.core.RepositoryError.SpecificError
 import com.github.arhi23.photosocnet.core.Result
 import com.github.arhi23.photosocnet.core.Result.Failure
 import com.github.arhi23.photosocnet.core.Result.Success
+import com.github.arhi23.photosocnet.core.repo.IAuthenticationRepository
 import javax.inject.Inject
 
 class AuthenticationRepository @Inject constructor(
   private val authNetworkApi: AuthNetworkApi,
   private val tokenManager: AuthenticationTokenManager,
-) {
+) : IAuthenticationRepository {
 
-  fun isUserAuthenticated(): Boolean {
+  override fun isUserAuthenticated(): Boolean {
     return !getAuthToken().isNullOrBlank()
   }
 
-  fun getAuthToken(): String? {
+  override fun getAuthToken(): String? {
     return tokenManager.getToken()
   }
 
-  fun clearAuthenticationInfo() {
+  override fun clearAuthenticationInfo() {
     tokenManager.clear()
   }
 
-  suspend fun authenticate(login: String, password: String): Result<String> {
+  override suspend fun authenticate(login: String, password: String): Result<String> {
     val response = authNetworkApi.authenticate(login, password)
     return when (response) {
       is Success -> {
@@ -36,11 +37,11 @@ class AuthenticationRepository @Inject constructor(
     }
   }
 
-  private fun saveAuthToken(token: String) {
+  override fun saveAuthToken(token: String) {
     tokenManager.saveToken(token)
   }
 
-  suspend fun exchangeToken(): Result<String> {
+  override suspend fun exchangeToken(): Result<String> {
     val oldToken =
       getAuthToken() ?: return Failure(data = SpecificError("exchangeToken old token is null"))
     val response = authNetworkApi.exchangeToken(oldToken)

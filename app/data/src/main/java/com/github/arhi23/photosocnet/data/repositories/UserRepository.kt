@@ -6,11 +6,12 @@ import com.github.arhi23.photosocnet.core.RepositoryError.SpecificError
 import com.github.arhi23.photosocnet.core.Result
 import com.github.arhi23.photosocnet.core.Result.Failure
 import com.github.arhi23.photosocnet.core.Result.Success
+import com.github.arhi23.photosocnet.core.repo.IUserRepository
 import com.github.arhi23.photosocnet.data.NetworkResponseNorm
 import com.github.arhi23.photosocnet.data.daos.RemoteKeyDao
 import com.github.arhi23.photosocnet.data.daos.UserItemDao
-import com.github.arhi23.photosocnet.data.entities.RemoteKeyEnt
-import com.github.arhi23.photosocnet.data.entities.UserItemEnt
+import com.github.arhi23.photosocnet.core.entities.RemoteKeyEnt
+import com.github.arhi23.photosocnet.core.entities.UserItemEnt
 import javax.inject.Inject
 
 class UserRepository @Inject constructor(
@@ -18,11 +19,11 @@ class UserRepository @Inject constructor(
   private val userNetworkApi: UserNetworkApi,
   private val networkResponseNorm: NetworkResponseNorm,
   private val remoteKeyDao: RemoteKeyDao,
-) {
+) : IUserRepository {
 
-  fun pagingSourceTimeline(): PagingSource<Int, UserItemEnt> = userItemDao.pagingSourceTimeline()
+  override fun pagingSourceTimeline(): PagingSource<Int, UserItemEnt> = userItemDao.pagingSourceTimeline()
 
-  suspend fun getUser(userId: String): Result<UserItemEnt> {
+  override suspend fun getUser(userId: String): Result<UserItemEnt> {
     val response = userNetworkApi.getUser(userId)
     return when (response) {
       is Success -> {
@@ -36,11 +37,11 @@ class UserRepository @Inject constructor(
     }
   }
 
-  suspend fun getRefreshKey(): String? {
+  override suspend fun getRefreshKey(): String? {
     return remoteKeyDao.getByRequest("followers")?.lastKey
   }
 
-  suspend fun requestUsers(loadKey: String, refresh: Boolean) {
+  override suspend fun requestUsers(loadKey: String, refresh: Boolean) {
     val response = userNetworkApi.getUsers(loadKey, 25)
     when (response) {
       is Success -> {
@@ -67,7 +68,7 @@ class UserRepository @Inject constructor(
       }
     }
   }
-  suspend fun getOwner(): Result<UserItemEnt> {
+  override suspend fun getOwner(): Result<UserItemEnt> {
     val response =  userNetworkApi.getOwner()
     return when (response) {
       is Success -> {
@@ -80,7 +81,7 @@ class UserRepository @Inject constructor(
     }
   }
 
-  suspend fun saveOwner(name: String, description: String): Result<UserItemEnt> {
+  override suspend fun saveOwner(name: String, description: String): Result<UserItemEnt> {
     val response = userNetworkApi.saveOwner(name, description)
     return when (response) {
       is Success -> {

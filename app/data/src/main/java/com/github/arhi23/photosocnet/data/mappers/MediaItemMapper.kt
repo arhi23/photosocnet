@@ -1,7 +1,7 @@
 package com.github.arhi23.photosocnet.data.mappers
 
 import com.github.arhi23.photosocnet.api.network.model.MediaItemNet
-import com.github.arhi23.photosocnet.data.entities.MediaInfoEnt
+import com.github.arhi23.photosocnet.core.entities.MediaInfoEnt
 import javax.inject.Inject
 
 class MediaItemMapper @Inject constructor(): Mapper<MediaItemNet, MediaInfoEnt> {
